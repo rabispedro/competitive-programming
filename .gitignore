@@ -1,0 +1,4 @@
+# Removing I/O and compiled files
+*.out
+*.txt
+*.o
