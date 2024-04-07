@@ -8,3 +8,4 @@ Cada Online Judge tem uma branch:
 - [Neps Academy](https://github.com/rabispedro/competitive-programming/tree/neps-academy)
 - [SPOJ](https://github.com/rabispedro/competitive-programming/tree/spoj)
 - [UVa](https://github.com/rabispedro/competitive-programming/tree/uva)
+- [Maratona Algar](https://github.com/rabispedro/competitive-programming/tree/maratona-algar)
