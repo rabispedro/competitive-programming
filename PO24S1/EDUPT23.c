@@ -21,21 +21,15 @@ ABB *cria_abb();
 void insere_valor_abb(ABB *abb, const int valor);
 void printa_largura_abb(ABB *abb);
 
-void pre_ordem_abb(ABB *abb);
-void pre_ordem_no_abb(No *raiz);
-
 int main()
 {
 	int N;
 	ABB *abb = cria_abb();
 
 	while (scanf("%d", &N), (N != -1))
-	{
 		insere_valor_abb(abb, N);
-	}
 
 	printa_largura_abb(abb);
-	// pre_ordem_abb(abb);
 
 	return 0;
 }
@@ -46,8 +40,7 @@ No *cria_no(const int valor, const int altura)
 
 	if (n != NULL)
 	{
-		n->esq = NULL;
-		n->dir = NULL;
+		n->esq = n->dir = NULL;
 		n->altura = altura;
 		n->valor = valor;
 	}
@@ -136,41 +129,13 @@ void printa_largura_abb(ABB *abb)
 			topologia[index++] = topologia[i]->esq;
 		if (topologia[i]->dir != NULL)
 			topologia[index++] = topologia[i]->dir;
-	}
 
-	for (int i = 0; i < TAMANHO; i++)
-	{
-		if (i == 0)
-		{
-			printf("%d", topologia[i]->valor);
-		}
-		else
-		{
-			if (topologia[i - 1]->altura != topologia[i]->altura)
-				printf("\n");
-			printf("%d ", topologia[i]->valor);
+		int anterior = (i > 0 ? (i - 1) : i);
+		if (topologia[anterior]->altura < topologia[i]->altura)
+			printf("\n");
 
-		}
+		printf("%d ", topologia[i]->valor);
 	}
 
 	printf("\n");
-}
-
-void pre_ordem_abb(ABB *abb)
-{
-	if (abb == NULL || abb->raiz == NULL)
-		return;
-
-	pre_ordem_no_abb(abb->raiz);
-	printf("\n");
-}
-
-void pre_ordem_no_abb(No *raiz)
-{
-	if (raiz != NULL)
-	{
-		printf("%d ", raiz->altura);
-		pre_ordem_no_abb(raiz->esq);
-		pre_ordem_no_abb(raiz->dir);
-	}
 }
