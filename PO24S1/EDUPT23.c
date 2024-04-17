@@ -115,22 +115,19 @@ void printa_largura_abb(ABB *abb)
 	if (abb == NULL || abb->raiz == NULL)
 		return;
 
-	const int TAMANHO = abb->tamanho;
-	const int ALTURA = abb->altura;
-
-	No **topologia = (No **)malloc(TAMANHO * sizeof(No *));
+	No **topologia = (No **)malloc(abb->tamanho * sizeof(No *));
 	int index = 0;
 
 	topologia[index++] = abb->raiz;
 
-	for (int i = 0; i < TAMANHO; i++)
+	for (int i = 0; i < abb->tamanho; i++)
 	{
 		if (topologia[i]->esq != NULL)
 			topologia[index++] = topologia[i]->esq;
 		if (topologia[i]->dir != NULL)
 			topologia[index++] = topologia[i]->dir;
 
-		int anterior = (i > 0 ? (i - 1) : i);
+		const int anterior = (i > 0 ? (i - 1) : i);
 		if (topologia[anterior]->altura < topologia[i]->altura)
 			printf("\n");
 
