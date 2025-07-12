@@ -3,3 +3,4 @@
 *.in
 *.txt
 *.o
+.vscode
