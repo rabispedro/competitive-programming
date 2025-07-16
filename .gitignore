@@ -1,6 +1,7 @@
 # Removing I/O and compiled files
-*.out
-*.in
-*.txt
-*.o
+**.out
+**.in
+**.txt
+**.o
+**/Main
 .vscode
