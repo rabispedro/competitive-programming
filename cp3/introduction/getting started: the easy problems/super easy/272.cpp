@@ -16,7 +16,6 @@ int main() {
 				else input.replace(i, 1, "``");
 				isClosing = !isClosing;
 			}
-			
 		}
 		cout<<input<<"\n";
 	}
