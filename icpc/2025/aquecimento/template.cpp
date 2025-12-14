@@ -23,25 +23,5 @@ const int MOD = 1e9+7;
 int main () {
 	FASTIO;
 
-	/*
-	O que eu preciso fazer?
-
-	O que pode dar errado?
-	
-	O que fazer se der errado?
-
-	O que pode dar certo?
-
-	O que fazer se der certo?
-
-	Quais minhas entradas?
-
-	Quais minhas saidas?
-
-	O que fazer com essas informações?
-
-	Exemplos:
-	*/
-
 	return 0;
 }

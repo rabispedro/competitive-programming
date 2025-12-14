@@ -3,6 +3,7 @@
 #define FASTIO ios_base::sync_with_stdio(false), cin.tie(0), cout.tie(0)
 #define DEBUG(x) cout << #x << ": '" << x << "'\n"
 #define REP(i, a, b) for(int i=a; i<=b; i++)
+#define ENDL "\n"
 
 #define F first
 #define S second
