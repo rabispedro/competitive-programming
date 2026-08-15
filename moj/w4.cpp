@@ -14,17 +14,17 @@ using namespace std;
 
 typedef long long ll;
 typedef vector<int> vi;
-typedef vector<set<int>> vsi;
+typedef vector<vector<int>> vvi;
 typedef pair<int, int> pii;
 
 const int POS_INF = 1e9;
 const int NEG_INF = 1e-9;
 const int MOD = 1e9+7;
 
-int n, m, a, b, cache[100010], van=0;
-vsi graph;
+ll n, m, a, b, cache[100010], k;
+vvi graph;
 
-void solve(int idx);
+void dfs(int idx);
 
 int main () {
 	FASTIO;
@@ -36,47 +36,28 @@ int main () {
 
 	REP(i, 0, m-1) {
 		cin >> a >> b;
-		graph[a-1].insert(b-1);
-		graph[b-1].insert(a-1);
+		graph[a-1].push_back(b-1);
+		graph[b-1].push_back(a-1);
 	}
 
-	// Lista de Adjacencia
-	// 1: [2, 2] 
-	// 2: [1, 3]
-	// 3: [2, 4]
-	// 4: [3, 5]
-	// 5: []
-
 	REP(i, 0, n-1)
-		solve(i);
+		if(!cache[i])
+			dfs(i);
 
-	// cout << "\n";
-
-	// for (auto i  : graph) {
-	// 	for (auto j : i) {
-	// 		cout << j << " ";
-	// 	}
-	// 	cout << "\n";
-	// }
-
-	cout << van << "\n";
+	cout << k << "\n";
 
 	return 0;
 }
 
-void solve(int idx) {
-	DEBUG(idx);
-	DEBUG(cache[idx]);
-	
-	if(cache[idx]) {
-		cout << "retornado!\n";
-		return;
+void dfs(int idx) {
+	if (!cache[idx])
+		cache[idx] = ++k;
+
+	for(int i=0; i < graph[idx].size(); i++) {
+		auto valor = graph[idx][i];
+		if (!cache[valor]) {
+			cache[valor] = cache[idx];
+			dfs(valor);
+		}
 	}
-
-	
-	cache[idx] = van+1;
-	for (auto i : graph[idx])
-		cache[i] = van+1;
-
-	van++;
 }
